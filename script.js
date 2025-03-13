@@ -20,10 +20,11 @@ filterbyregion.addEventListener('change',(e)=>{
 function renderCountries(data){
     countriesContainer.innerHTML=""
     data.forEach((country) => {
-        const countryCard=document.createElement('a');
-        countryCard.href=`/country.html?name=${country.name.common}`;
+        const countryCard=document.        createElement('a');
+        countryCard.href = `country.html?name=${country.name.common}`;
+
         countryCard.classList.add('country-card');
-        countryCard.innerHTML=` <img src=${country.flags.svg} alt="flag" srcset="">
+        countryCard.innerHTML=` <img src="${country.flags?.svg || 'fallback-image.png'}" alt="flag">
          <div class="card-text">
             <h3 class="card-title">${country.name.common}</h3>
             <p><b>population: </b>${country.population.toLocaleString('en-IN')}</p>
