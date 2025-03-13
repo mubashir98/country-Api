@@ -10,6 +10,7 @@ const domain = document.querySelector('.domain');
 const currency = document.querySelector('.currency');
 const languages = document.querySelector('.languages');
 const borderCountries = document.querySelector('.border-countries')
+const themeChanger=document.querySelector('.theme-changer')
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     .then((res) => res.json())
     .then(([country]) => { //destructuring data[0] into country[country]
@@ -51,3 +52,15 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
         }
 
     })
+    themeChanger.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        
+        if (document.body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+    }
