@@ -27,7 +27,7 @@ function renderCountries(data){
         countryCard.innerHTML=` <img src="${country.flags?.svg || 'fallback-image.png'}" alt="flag">
          <div class="card-text">
             <h3 class="card-title">${country.name.common}</h3>
-            <p><b>population: </b>${country.population.toLocaleString('en-IN')}</p>
+            <p><b>population: </b>${country.population.toLocaleString('en-US')}</p>
             <p><b>region: </b>${country.region}</p>
             <p><b>capital: </b>${country.capital}</p>
          </div>`
